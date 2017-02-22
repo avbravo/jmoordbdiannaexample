@@ -31,7 +31,7 @@ public class Ejemplo1 {
      * @param args the command line arguments
      */
 //    public static void main(String[] args) {
-    public void ejemplo(){
+    public void run(){
         // TODO code application logic here
         DocumentConfiguration configuration = new MongoDBDocumentConfiguration();
         try (DocumentCollectionManagerFactory collectionFactory = configuration.get();) {
@@ -42,6 +42,8 @@ public class Ejemplo1 {
             entity.add(Document.of("age", 26));
 
             DocumentEntity entitySaved = collectionManager.save(entity);
+            
+            System.out.println("Guardado");
             Optional<Document> id = entitySaved.find("_id");
 
             DocumentQuery query = DocumentQuery.of(DOCUMENT_COLLECTION);
